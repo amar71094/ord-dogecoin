@@ -31,7 +31,7 @@ services:
     ]
     volumes:
       - ${DOG_MOUNT_DIR_INDEXER:-/mnt/storage1/dogecoin/ord-node}/indexer-data-main:/root/.data:delegated
-      - ${DOGE_COOKIE_FILE_HOST}:${DOGE_COOKIE_FILE_CONTAINER:-/root/.dogecoin/.cookie}:ro
+      - ${DOGE_COOKIE_DIR_HOST:-/home/ubuntu/.dogecoin}:${DOGE_COOKIE_DIR_CONTAINER:-/root/.dogecoin}:ro
       # If your dogecoin node is running in a container, you can mount the dogecoin data directory to the indexer container
       # - dog-data:/root/.dogecoin
     logging:
