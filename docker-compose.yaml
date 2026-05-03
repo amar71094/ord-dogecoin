@@ -25,10 +25,11 @@ services:
       "--index-dunes",
       "--index-transactions",
       "--index-drc20",
-      "server"
+      "server",
+      "--http-port=${ORD_HTTP_PORT}"
     ]
     volumes:
-      - ${DOG_MOUNT_DIR_INDEXER:-/mnt/ord-node}/indexer-data-main:/root/.data:delegated
+      - ${DOG_MOUNT_DIR_INDEXER:-/mnt/storage1/dogecoin/ord-node}/indexer-data-main:/root/.data:delegated
       # If your dogecoin node is running in a container, you can mount the dogecoin data directory to the indexer container
       # - dog-data:/root/.dogecoin
     logging:
