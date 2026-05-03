@@ -17,7 +17,7 @@ services:
     #      - ${ORD_HTTP_PORT:-8080}:80
     entrypoint: [
       "ord",
-      "--rpc-url=${RPC_URL}",
+      "--cookie-file=${DOGE_COOKIE_FILE_CONTAINER:-/root/.dogecoin/.cookie}",
       "--data-dir=/root/.data",
       "--nr-parallel-requests=250",
       "--first-inscription-height=${FIRST_INSCRIPTION_HEIGHT}",
@@ -30,6 +30,7 @@ services:
     ]
     volumes:
       - ${DOG_MOUNT_DIR_INDEXER:-/mnt/storage1/dogecoin/ord-node}/indexer-data-main:/root/.data:delegated
+      - ${DOGE_COOKIE_FILE_HOST}:${DOGE_COOKIE_FILE_CONTAINER:-/root/.dogecoin/.cookie}:ro
       # If your dogecoin node is running in a container, you can mount the dogecoin data directory to the indexer container
       # - dog-data:/root/.dogecoin
     logging:
