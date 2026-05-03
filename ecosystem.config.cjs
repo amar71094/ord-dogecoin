@@ -1,5 +1,5 @@
 const composeBase = [
-  'docker compose',
+  'sudo docker compose',
   '--env-file "$COMPOSE_ENV_FILE"',
   '-f "$COMPOSE_FILE"',
   '-p "$COMPOSE_PROJECT_NAME"',
