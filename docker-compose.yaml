@@ -17,9 +17,10 @@ services:
     #      - ${ORD_HTTP_PORT:-8080}:80
     entrypoint: [
       "ord",
+      "--rpc-url=${RPC_URL:-127.0.0.1:22555}",
       "--cookie-file=${DOGE_COOKIE_FILE_CONTAINER:-/root/.dogecoin/.cookie}",
       "--data-dir=/root/.data",
-      "--nr-parallel-requests=250",
+      "--nr-parallel-requests=${NR_PARALLEL_REQUESTS:-16}",
       "--first-inscription-height=${FIRST_INSCRIPTION_HEIGHT}",
       "--first-dune-height=${FIRST_DUNE_HEIGHT}",
       "--index-dunes",

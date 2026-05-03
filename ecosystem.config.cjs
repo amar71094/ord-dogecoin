@@ -31,6 +31,8 @@ module.exports = {
         COMPOSE_PROJECT_NAME: 'ord-indexer',
         COMPOSE_UP_OPTIONS: '--remove-orphans',
         COMPOSE_SERVICES: 'ord-indexer',
+        RPC_URL: process.env.RPC_URL || '127.0.0.1:22555',
+        NR_PARALLEL_REQUESTS: process.env.NR_PARALLEL_REQUESTS || '16',
         DOGE_COOKIE_FILE_HOST:
           process.env.DOGE_COOKIE_FILE_HOST ||
           `${process.env.HOME || '/Users/apple'}/.dogecoin/.cookie`,
